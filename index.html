@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖐️ 问候语 DApp - 查看问候语历史</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🖐️ 问候语 DApp</h1>
+            <p class="subtitle">查看智能合约中的问候语变更历史</p>
+        </header>
+
+        <!-- 状态显示 -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">连接状态:</span>
+                <span id="connection-status" class="status-value disconnected">未连接</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">数据更新:</span>
+                <span id="last-update" class="status-value">从未更新</span>
+            </div>
+        </div>
+
+        <!-- 最新问候语显示 -->
+        <div class="current-greeting-section">
+            <h2>🔥 当前问候语</h2>
+            <div id="current-greeting" class="greeting-display">
+                <div class="loading-spinner">🔄 加载中...</div>
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="controls">
+            <button id="refresh-btn" class="btn btn-primary">
+                🔄 刷新数据
+            </button>
+            <button id="auto-refresh-btn" class="btn btn-secondary">
+                ⏸️ 自动刷新: 关闭
+            </button>
+        </div>
+
+        <!-- 过滤器 -->
+        <div class="filter-section">
+            <h3>🔍 过滤选项</h3>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="address-filter">按地址过滤:</label>
+                    <input type="text" id="address-filter" placeholder="输入以太坊地址 (0x...)">
+                </div>
+                <div class="filter-group">
+                    <label for="limit-filter">显示数量:</label>
+                    <select id="limit-filter">
+                        <option value="5">5 条</option>
+                        <option value="10" selected>10 条</option>
+                        <option value="20">20 条</option>
+                        <option value="50">50 条</option>
+                    </select>
+                </div>
+                <button id="apply-filter-btn" class="btn btn-primary">应用过滤</button>
+                <button id="clear-filter-btn" class="btn btn-secondary">清除过滤</button>
+            </div>
+        </div>
+
+        <!-- 问候语历史 -->
+        <div class="history-section">
+            <h2>📅 问候语变更历史</h2>
+            <div id="greeting-history" class="history-container">
+                <div class="loading-spinner">🔄 加载历史数据...</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>✨ 由 <a href="https://thegraph.com" target="_blank">The Graph</a> 提供数据支持</p>
+            <p>🔗 <a href="https://thegraph.com/studio/subgraph/hello-greeting" target="_blank">查看 Subgraph</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
